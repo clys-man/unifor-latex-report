@@ -1,4 +1,5 @@
-# Template: Relatório de Acompanhamento Técnico-Científico
+# Unifor LaTeX Report Template
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 Este repositório contém um template em LaTeX estruturado para a criação de relatórios semanais de projetos de Pesquisa e Desenvolvimento (P&D). Ele foi originalmente desenhado para o acompanhamento de projetos em Inteligência Artificial, mas sua estrutura modular pode ser adaptada para qualquer área de pesquisa.
 
