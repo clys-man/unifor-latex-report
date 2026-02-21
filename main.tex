@@ -1,0 +1,113 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[brazilian]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{amsmath, amssymb}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{xcolor}
+\usepackage{caption}
+\usepackage{cite}
+\usepackage[hidelinks]{hyperref}
+
+\captionsetup{labelfont=bf, textfont=bf}
+
+\geometry{left=3cm, right=2cm, top=3cm, bottom=2cm}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\footnotesize Relatório Semanal de Pesquisa}
+\rhead{\footnotesize \thepage}
+\lfoot{\footnotesize Núcleo de Ciência de Dados e Inteligência Artificial - UNIFOR}
+
+% --- Comando para facilitar novas entradas semanais ---
+\newcommand{\novaSemana}[2]{
+    \phantomsection
+    \addcontentsline{toc}{part}{Semana #1 (#2)}
+    
+    \section*{Relatório de Atividades: Semana #1}
+    \textit{Período: #2}
+    \vspace{0.3cm}
+    \hrule
+    \vspace{0.5cm}
+    \setcounter{section}{0}
+    \setcounter{subsection}{0}
+    \setcounter{figure}{0}
+    \setcounter{table}{0}
+}
+
+\begin{document}
+
+% --- CAPA ---
+\begin{titlepage}
+    
+    % --- CABEÇALHO ---
+    \noindent
+    \begin{minipage}{0.15\textwidth} 
+        \centering
+        \includegraphics[width=2.2cm]{logo_unifor.png}
+    \end{minipage}%
+    \begin{minipage}{0.85\textwidth} 
+        \raggedright % Alinha o texto à esquerda sem hifenização
+        \fontsize{9pt}{11pt}\selectfont % Ajusta a fonte para caber exatamente
+        \bfseries 
+        \MakeUppercase{Fundação Edson Queiroz}\\
+        \MakeUppercase{Universidade de Fortaleza - UNIFOR} \\
+        \MakeUppercase{Centro de Ciências Tecnológicas} \\
+        \MakeUppercase{Núcleo de Ciências de Dados e Inteligência Artificial}
+    \end{minipage}
+
+    \begin{center}
+        \bfseries
+        
+        \vspace{5cm}
+        \MakeUppercase{Relatórios de Acompanhamento Técnico-Científico}
+
+        \vspace{4cm}
+        \MakeUppercase{Clysman}\\
+        \vspace{0.2cm}
+        \MakeUppercase{Orientador: Prof. Dr. Caio}
+
+        \vspace{5cm}
+
+        \vfill
+        \normalsize\MakeUppercase{Fortaleza -- Ceará}\par
+        \normalsize 2026
+    \end{center}
+\end{titlepage}
+
+% --- SUMÁRIO ---
+\renewcommand{\contentsname}{Sumário}
+\pdfbookmark[1]{\contentsname}{toc}
+\tableofcontents
+\newpage
+
+% --- INTRODUÇÃO ---
+\phantomsection
+\addcontentsline{toc}{part}{Introdução} % Adiciona ao sumário no mesmo nível das semanas
+\section*{Introdução}
+
+Este relatório técnico apresenta o acompanhamento das atividades de pesquisa focadas na análise da evolução da pós-graduação stricto sensu no Brasil. Através do processamento de dados históricos e da aplicação de algoritmos de aprendizagem de máquina, busca-se compreender os fatores que impulsionaram o crescimento das titulações de Mestrado e Doutorado entre os anos de 1990 e 2008.
+
+A relevância deste estudo reside na necessidade de mapear a eficácia das políticas de fomento e a expansão da capacidade científica nacional. Para tanto, o projeto está estruturado em fases semanais que abrangem desde a coleta e tratamento de dados brutos até a modelagem preditiva utilizando redes neurais, visando projetar cenários futuros para o sistema educacional brasileiro \cite{Silva2023}.
+
+Os capítulos subsequentes detalham o progresso semanal, as metodologias aplicadas e as discussões técnicas baseadas nos resultados obtidos.
+
+\newpage
+
+% --- SEMANAS ---
+\input{semanas/01/main.tex}
+\input{semanas/02/main.tex}
+
+% --- Referências ---
+\bibliographystyle{ieeetr}
+\phantomsection
+\addcontentsline{toc}{part}{Referências}
+\bibliography{referencias}
+
+\end{document}
