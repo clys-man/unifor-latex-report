@@ -1,4 +1,5 @@
 # Unifor LaTeX Report Template
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 Este repositório contém um template em LaTeX estruturado para a criação de relatórios semanais de projetos de Pesquisa e Desenvolvimento (P&D). Ele foi originalmente desenhado para o acompanhamento de projetos em Inteligência Artificial, mas sua estrutura modular pode ser adaptada para qualquer área de pesquisa.
@@ -31,7 +32,7 @@ Para manter o código limpo ao longo de meses de pesquisa, o projeto utiliza uma
 
 Você pode editar e compilar este projeto de duas maneiras: utilizando a plataforma nuvem **Overleaf** ou trabalhando **localmente** no seu editor favorito (VS Code, Vim, etc.) com **Docker**.
 
-### Opção 1: Importando no Overleaf (Recomendado para iniciantes)
+### Opção 1: Importando no overleaf
 
 1. Faça o download deste repositório inteiro como um arquivo `.zip`.
 2. Acesse o [Overleaf](https://www.overleaf.com/) e faça login.
@@ -45,28 +46,43 @@ Se você prefere editar o código no **VS Code**, **Vim**, **Neovim** ou qualque
 
 **Pré-requisitos:**
 
-- [Docker](https://docs.docker.com/get-docker/) instalado na sua máquina.
+- [Docker](https://docs.docker.com/get-docker/)
+- [Make](https://www.gnu.org/software/make/) (recomendado)
 - Seu editor de texto de preferência.
 
 **Passo 1: Construir a Imagem Docker**
 
-No terminal, navegue até a raiz do projeto (onde o `Dockerfile` está) e execute o comando abaixo para construir a imagem. Isso fará o download da imagem oficial do TeX Live:
+Execute uma única vez (ou quando alterar o Dockerfile) para preparar o ambiente:
 
 ```bash
-docker build -t abnttex2 .
-
+make build
 ```
 
 **Passo 2: Compilar o Projeto**
 
-Após editar seus arquivos `.tex` no editor, execute o comando abaixo para rodar o container, compilar o documento e destruir o container em seguida:
+Para compilar o arquivo principal (`main.tex`):
 
 ```bash
-docker run --rm -v "$(pwd)":/build --name abnttex2 abnttex2
-
+make
 ```
 
-Ao final, o resultado estará no arquivo [main.pdf](./main.pdf)
+Para compilar um arquivo específico: `make FILE=nome_do_arquivo`
+
+**Passo 3: Visualizar o PDF**
+
+Para abrir o PDF gerado no seu leitor padrão:
+
+```bash
+make view
+```
+
+#### Uso Direto via Docker:
+
+Embora o uso do **Make** seja recomendado pela praticidade, você também pode realizar a compilação direta pelo Docker se preferir:
+
+```bash
+docker run --rm -v "$(pwd)":/build --name abnttex2 abnttex2 sh -c "latexmk -pdf -outdir=build main.tex && cp build/main.pdf ."
+```
 
 ---
 
